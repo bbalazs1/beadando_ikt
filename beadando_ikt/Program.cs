@@ -70,6 +70,35 @@ namespace beadando_ikt
                     break;
                 Consolse.WriteLine("Hibás érték!")
                 }
+            
+            double osszIdo = 0;
+            for (int i = 1; i <= napok; i++)
+            {
+                int erosseg = 0;
+                while (true)
+                {
+                    Console.Write($"Add meg a(z) {i}. nap erősségét (1-5): ");
+                    if (int.TryParse(Console.ReadLine(), out erosseg) && erosseg >= 1 && erosseg <= 5)
+                        break;
+                    Console.WriteLine("Hibás érték! 1 és 5 között adj meg számot.");
+                }
+    
+                double napiIdo = alapido + (erosseg - 3) * 5; 
+                if (napiIdo < 0) napiIdo = 0;
+                osszIdo += napiIdo;
+            }
+    
+            double osszKaloria = testsuly * osszIdo * kaloriaSz;
+    
+    
+            Console.WriteLine("\n----- Eredmény -----");
+            Console.WriteLine($"Név: {nev}");
+            Console.WriteLine($"Cél: {(cel == 1 ? "Állóképesség" : cel == 2 ? "Izomtömeg" : "Fogyás")}");
+            Console.WriteLine($"Edzés típusa: {tipus}");
+            Console.WriteLine($"Heti összes edzésidő: {osszIdo} perc");
+            Console.WriteLine($"Becsült elégetett kalória: {Math.Round(osszKaloria, 2)} kcal");
+    
+
         }
     }
 }
