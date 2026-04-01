@@ -60,6 +60,20 @@ namespace BankiApp
             Console.ReadLine();
         }
 
+        static void BefizetesMenu()
+        {
+            Console.Write("Melyik számla sorszáma? ");
+            if (int.TryParse(Console.ReadLine(), out int index) && index >= 0 && index < szamlak.Count)
+            {
+                Console.Write("Összeg: ");
+                decimal osszeg = decimal.Parse(Console.ReadLine());
+                szamlak[index].Deposit(osszeg);
+                Console.WriteLine("Sikeres művelet!");
+            }
+            else Console.WriteLine("Hiba: Érvénytelen sorszám!");
+            Console.ReadLine();
+        }
+
 
 
    
