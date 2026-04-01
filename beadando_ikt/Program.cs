@@ -47,6 +47,19 @@ namespace BankiApp
                 sr.Close();
             }
         }
+        static void ListazasMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Sorszám\tNév\t\tSzámlaszám\tEgyenleg");
+            Console.WriteLine("---------------------------------------------------------");
+            for (int i = 0; i < szamlak.Count; i++)
+            {
+                Console.WriteLine(i + ".\t" + szamlak[i].Nev + "\t" + szamlak[i].Szamlaszam + "\t" + szamlak[i].Egyenleg + " Ft");
+            }
+            Console.WriteLine("\nNyomjon Entert a visszalépéshez!");
+            Console.ReadLine();
+        }
+
 
 
    
