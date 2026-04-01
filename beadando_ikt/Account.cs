@@ -27,3 +27,25 @@ namespace BankiApp
             this.naplo = new List<string>();
             Naplozas("Számla létrehozva");
         }
+        
+        public void Deposit(decimal osszeg)
+        {
+            if (osszeg > 0)
+            {
+                egyenleg += osszeg;
+                Naplozas("Befizetés: +" + osszeg);
+            }
+        }
+
+        public bool Withdraw(decimal osszeg)
+        {
+            if (osszeg > 0 && (egyenleg + hitelkeret) >= osszeg)
+            {
+                egyenleg -= osszeg;
+                Naplozas("Kifizetés: -" + osszeg);
+                return true;
+            }
+            return false;
+        }
+
+     
