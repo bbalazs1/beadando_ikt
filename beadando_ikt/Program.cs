@@ -34,6 +34,20 @@ namespace BankiApp
                 else if (valasztas == "6") ListazasMenu();
             }
         }
+             static void AdatokBetoltese()
+        {
+            if (File.Exists("szamlak.txt"))
+            {
+                StreamReader sr = new StreamReader("szamlak.txt");
+                while (!sr.EndOfStream)
+                {
+                    string[] sor = sr.ReadLine().Split(';');
+                    szamlak.Add(new Account(sor[0], sor[1], decimal.Parse(sor[2])));
+                }
+                sr.Close();
+            }
+        }
+
 
    
 
