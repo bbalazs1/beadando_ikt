@@ -118,6 +118,19 @@ namespace BankiApp
             else Console.WriteLine("Hiba: Érvénytelen sorszám!");
             Console.ReadLine();
         }
+                static void MentesMenu()
+        {
+            Console.Write("Melyik számla naplóját mentsem? ");
+            if (int.TryParse(Console.ReadLine(), out int index) && index >= 0 && index < szamlak.Count)
+            {
+                szamlak[index].NaploFajlbaIras();
+                Console.WriteLine("Mentve: " + szamlak[index].Szamlaszam + ".txt");
+            }
+            else Console.WriteLine("Hiba: Érvénytelen sorszám!");
+            Console.ReadLine();
+        }
+    }
+}
 
 
 
