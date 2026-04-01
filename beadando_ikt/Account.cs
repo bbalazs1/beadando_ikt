@@ -56,6 +56,18 @@ namespace BankiApp
             }
             return false;
         }
+                public bool HitelkeretModositas(decimal ujLimit)
+        {
+            if (ujLimit <= nyitoEgyenleg * 0.2m)
+            {
+                hitelkeret = ujLimit;
+                Naplozas("Hitelkeret módosítva: " + ujLimit);
+                return true;
+            }
+            return false;
+        }
+
+
 
 
 
