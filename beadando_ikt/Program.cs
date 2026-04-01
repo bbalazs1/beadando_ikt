@@ -87,6 +87,24 @@ namespace BankiApp
             else Console.WriteLine("Hiba: Érvénytelen sorszám!");
             Console.ReadLine();
         }
+                static void UtalasMenu()
+        {
+            Console.Write("Honnan (sorszám): ");
+            int honnan = int.Parse(Console.ReadLine());
+            Console.Write("Hova (sorszám): ");
+            int hova = int.Parse(Console.ReadLine());
+
+            if (honnan >= 0 && honnan < szamlak.Count && hova >= 0 && hova < szamlak.Count)
+            {
+                Console.Write("Összeg: ");
+                decimal osszeg = decimal.Parse(Console.ReadLine());
+                if (szamlak[honnan].Utalas(szamlak[hova], osszeg)) Console.WriteLine("Sikeres utalás!");
+                else Console.WriteLine("Hiba: Nincs elég fedezet!");
+            }
+            else Console.WriteLine("Hiba: Érvénytelen sorszámok!");
+            Console.ReadLine();
+        }
+
 
 
 
