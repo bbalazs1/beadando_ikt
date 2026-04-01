@@ -66,6 +66,28 @@ namespace BankiApp
             }
             return false;
         }
+                private void Naplozas(string muvelet)
+        {
+            string sor = DateTime.Now.ToString() + ";" + egyenleg + ";" + muvelet;
+            naplo.Add(sor);
+        }
+
+        public void NaploFajlbaIras()
+        {
+            StreamWriter sw = new StreamWriter(szamlaszam + ".txt");
+            for (int i = 0; i < naplo.Count; i++)
+            {
+                sw.WriteLine(naplo[i]);
+            }
+            sw.Close();
+        }
+
+        public override string ToString()
+        {
+            return nev + " [" + szamlaszam + "] - Egyenleg: " + egyenleg + " Ft";
+        }
+    }
+}
 
 
 
