@@ -47,5 +47,16 @@ namespace BankiApp
             }
             return false;
         }
+           public bool Utalas(Account cel, decimal osszeg)
+        {
+            if (this.Withdraw(osszeg))
+            {
+                cel.Deposit(osszeg);
+                return true;
+            }
+            return false;
+        }
+
+
 
      
