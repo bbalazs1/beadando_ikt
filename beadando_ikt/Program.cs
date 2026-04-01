@@ -74,6 +74,21 @@ namespace BankiApp
             Console.ReadLine();
         }
 
+        static void KifizetesMenu()
+        {
+            Console.Write("Melyik számla sorszáma? ");
+            if (int.TryParse(Console.ReadLine(), out int index) && index >= 0 && index < szamlak.Count)
+            {
+                Console.Write("Összeg: ");
+                decimal osszeg = decimal.Parse(Console.ReadLine());
+                if (szamlak[index].Withdraw(osszeg)) Console.WriteLine("Sikeres kifizetés!");
+                else Console.WriteLine("Hiba: Nincs elég fedezet!");
+            }
+            else Console.WriteLine("Hiba: Érvénytelen sorszám!");
+            Console.ReadLine();
+        }
+
+
 
 
    
