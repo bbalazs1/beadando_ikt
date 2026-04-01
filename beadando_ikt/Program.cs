@@ -104,6 +104,22 @@ namespace BankiApp
             else Console.WriteLine("Hiba: Érvénytelen sorszámok!");
             Console.ReadLine();
         }
+        
+        static void HitelkeretMenu()
+        {
+            Console.Write("Számla sorszáma: ");
+            if (int.TryParse(Console.ReadLine(), out int index) && index >= 0 && index < szamlak.Count)
+            {
+                Console.Write("Új hitelkeret (max nyitó 20%-a): ");
+                decimal keret = decimal.Parse(Console.ReadLine());
+                if (szamlak[index].HitelkeretModositas(keret)) Console.WriteLine("Sikeres beállítás!");
+                else Console.WriteLine("Hiba: Túl magas összeg!");
+            }
+            else Console.WriteLine("Hiba: Érvénytelen sorszám!");
+            Console.ReadLine();
+        }
+
+
 
 
 
